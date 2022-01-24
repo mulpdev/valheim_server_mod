@@ -13,7 +13,7 @@ echo "Starting server PRESS CTRL-C to exit"
 #./valheim_server.x86_64 -name "My server" -port 2456 -world "Dedicated" -password "secret"
 #./start_server_bepinex.sh  -name "Phasmophobia2" -port 9666 -world "Modheim" -password "GiveUsASign" -public 1
 
-./start_server_bepinex.sh  -nographics -batchmode  -name $VALMOD_NAME -port $VALMOD_PORT -world $VALMOD_WORLD -password $VALMOD_PASS -public $VALMOD_PUBLIC
+./start_server_bepinex.sh -name $VALMOD_NAME -port $VALMOD_PORT -world $VALMOD_WORLD -password $VALMOD_PASS -public $VALMOD_PUBLIC
 
 #> "logs/valmod_"`date "+%Y%m%d-%H%M"`".log" 2>&1
 

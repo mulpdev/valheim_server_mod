@@ -4,7 +4,7 @@ INSTALL_DIR=~/valheimserver-mod
 BOTH_MOD_INSTALL_DIR=~/mod-packages/both
 SERVER_MOD_INSTALL_DIR=~/mod-packages/server
 
-pushd -n .
+pushd .
 
 # Blow away old install and reinstall base server
 rm -rf $INSTALL_DIR
@@ -71,5 +71,6 @@ cp valmod-start.sh $INSTALL_DIR
 mv $INSTALL_DIR/start_server_bepinex.sh $INSTALL_DIR/start_server_bepinex.sh.vanilla
 cp start_server_bepinex.sh.valheimplus $INSTALL_DIR/start_server_bepinex.sh
 
-echo "\n\n Run server once to generate configs, then run"
-echo "rsync -rv ./ $INSTALL_DIR"
+echo ""
+echo "Run server once to generate configs, then run"
+echo "rsync -rv ./BepInEx $INSTALL_DIR"
