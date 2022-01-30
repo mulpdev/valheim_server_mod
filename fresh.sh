@@ -1,9 +1,12 @@
 #!/usr/bin/bash
+set -e
 
-INSTALL_DIR=~/valheimserver-mod
-BOTH_MOD_INSTALL_DIR=~/mod-packages/both
-SERVER_MOD_INSTALL_DIR=~/mod-packages/server
+INSTALL_DIR=/home/steam/valheimserver-mod
+BOTH_MOD_INSTALL_DIR=/home/steam/mod-packages/both
+SERVER_MOD_INSTALL_DIR=/home/steam/mod-packages/server
 
+echo "Stopping server to update"
+sudo systemctl stop valheimservermod
 pushd .
 
 # Blow away old install and reinstall base server
@@ -87,5 +90,6 @@ sudo systemctl stop valheimservermod
 echo  "Copying saved off configs back in..."
 rsync -rv ./BepInEx $INSTALL_DIR
 chmod u+x $INSTALL_DIR/start_server_bepinex.sh
+cat BepInEx/config/CryptikLemur_DiscordNotifier.cfg  PRIVATE-discordwebhook >  ~/valheimserver-mod/BepInEx/config/CryptikLemur_DiscordNotifier.cfg
 
 echo "DONE!"
