@@ -11,8 +11,14 @@ pushd .
 
 # Blow away old install and reinstall base server
 rm -rf $INSTALL_DIR
-steamcmd +force_install_dir $INSTALL_DIR +login anonymous +app_update 896660 validate +exit
-#cp -r ~/downloaded $INSTALL_DIR
+
+if [ "$1" == "cp" ]
+then
+	echo "Copying from ~/downloaded"
+	cp -r ~/downloaded $INSTALL_DIR
+else
+	steamcmd +force_install_dir $INSTALL_DIR +login anonymous +app_update 896660 validate +exit && cp -r $INSTALL_DIR ~/downloaded
+fi
 
 # start installing mods
 cd $BOTH_MOD_INSTALL_DIR
@@ -25,13 +31,10 @@ cd $BOTH_MOD_INSTALL_DIR
 #   in order in to avoid inccompatible version error 
 
 #unzip UnixServer.zip  -d $INSTALL_DIR
-#chmod u+x $INSTALL_DIR/start_server_bepinex.sh
 tar xvf UnixServe*.tar.gz -C $INSTALL_DIR
 
-unzip denikson-BepInExPack_Valheim-5.4.1700.zip
+unzip denikson-BepInExPack_Valheim-*.zip
 rsync -rv BepInExPack_Valheim/ $INSTALL_DIR
-#chmod u+x $INSTALL_DIR/start_server_bepinex.sh
-#cp -f ~/works20220123/start_server_bepinex.sh $INSTALL_DIR
 rm -rf  BepInExPack_Valheim/ icon.png  manifest.json README.md
 
 # BoneAppetit reqs Jotunn
