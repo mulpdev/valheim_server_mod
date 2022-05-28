@@ -2,8 +2,8 @@
 set -e
 
 INSTALL_DIR=/home/steam/valheimserver-mod
-BOTH_MOD_INSTALL_DIR=/home/steam/mod-packages/both
-SERVER_MOD_INSTALL_DIR=/home/steam/mod-packages/server
+BOTH_MOD_INSTALL_DIR=/home/steam/mod-packages-val/both
+SERVER_MOD_INSTALL_DIR=/home/steam/mod-packages-val/server
 
 echo "Stopping server to update"
 sudo systemctl stop valheimservermod
